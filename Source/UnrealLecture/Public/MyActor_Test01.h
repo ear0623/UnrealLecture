@@ -4,22 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/StaticMeshComponent.h"
-#include "BP_Cube_Code.generated.h"
+#include "MyActor_Test01.generated.h"
 
 UCLASS()
-class UNREALLECTURE_API ABP_Cube_Code : public AActor
+class UNREALLECTURE_API AMyActor_Test01 : public AActor
 {
 	GENERATED_BODY()
-
-	UPROPERTY(VisibleAnywhere, category = "Default")
-	UStaticMeshComponent* SM_Cube;
 	
-	
-
 public:	
 	// Sets default values for this actor's properties
-	ABP_Cube_Code();
+	AMyActor_Test01();
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,5 +23,4 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	bool Ischage;
 };

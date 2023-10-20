@@ -9,7 +9,19 @@ ABP_Cube_Code::ABP_Cube_Code()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	SM_Cube = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CubeMesh"));
+	RootComponent = SM_Cube;
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("StaticMesh'/Game/Path/To/Your/StaticMesh'"));
+	if (MeshAsset.Succeeded())
+	{
+		SM_Cube->SetStaticMesh(MeshAsset.Object);
+	}
+
 }
+
+
+
 
 // Called when the game starts or when spawned
 void ABP_Cube_Code::BeginPlay()
@@ -23,5 +35,7 @@ void ABP_Cube_Code::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	
 }
+
 
