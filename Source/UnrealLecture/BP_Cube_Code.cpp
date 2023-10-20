@@ -18,7 +18,7 @@ ABP_Cube_Code::ABP_Cube_Code()
 		SM_Cube->SetStaticMesh(MeshAsset.Object);
 	}
 
-	//SM_Cube->SetMaterial(int32 ,);
+	
 }
 
 
