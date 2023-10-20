@@ -4,12 +4,21 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "MyActor.generated.h"
 
 UCLASS()
 class UNREALLECTURE_API AMyActor : public AActor
 {
 	GENERATED_BODY()
+	UPROPERTY(VisibleAnywhere, category = "default")
+	UStaticMeshComponent* SM_Cube_Move;
+
+	UPROPERTY(EditDefaultsOnly, category = "Bool")
+	bool Isturn{};
+
+	
+
 	
 public:	
 	// Sets default values for this actor's properties

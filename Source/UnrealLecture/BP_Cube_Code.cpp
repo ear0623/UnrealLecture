@@ -18,6 +18,24 @@ ABP_Cube_Code::ABP_Cube_Code()
 		SM_Cube->SetStaticMesh(MeshAsset.Object);
 	}
 
+	if (Ischange == false)
+	{
+		UMaterial* SetToMaterial = LoadObject<UMaterial>(nullptr, TEXT("'Material'/Game/Path/To/Your/Material1.Material1' "));
+		if (SetToMaterial)
+		{ 
+			SM_Cube->SetMaterial(0, SetToMaterial);
+		}
+		
+	}
+	else
+	{
+		UMaterial* SetToMaterial = LoadObject<UMaterial>(nullptr, TEXT("'Material'/Game/Path/To/Your/Material2.Material2'"));
+		if (SetToMaterial)
+		{
+			SM_Cube->SetMaterial(0, SetToMaterial);
+		}
+
+	}
 	
 }
 

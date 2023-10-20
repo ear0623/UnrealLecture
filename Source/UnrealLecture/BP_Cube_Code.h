@@ -15,6 +15,9 @@ class UNREALLECTURE_API ABP_Cube_Code : public AActor
 	UPROPERTY(VisibleAnywhere, category = "Default")
 	UStaticMeshComponent* SM_Cube;
 	
+	UPROPERTY(EditAnywhere, category = "bool")
+	bool Ischange = false;
+
 	
 
 public:	
@@ -29,6 +32,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	bool Ischage;
+	
 	
 };
