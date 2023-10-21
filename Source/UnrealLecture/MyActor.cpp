@@ -12,10 +12,10 @@ AMyActor::AMyActor()
 	SM_Cube_Move = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CubeMesh"));
 	RootComponent = SM_Cube_Move;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsst(TEXT("StaticMesh/'Game/Path/To/Yur/StaticMesh'"));
-	if (MeshAsst.Succeeded())
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("StaticMesh/'Game/Path/To/Your/StaticMesh'"));
+	if (MeshAsset.Succeeded())
 	{
-		SM_Cube_Move->SetStaticMesh(MeshAsst.Object);
+		SM_Cube_Move->SetStaticMesh(MeshAsset.Object);
 	}
 
 
@@ -32,6 +32,65 @@ void AMyActor::BeginPlay()
 void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	
+	
+
+	if (Isturn == false)
+	{
+		Multi_Result = BaseNumber * 1;
+		
+
+		FString Mesage = FString::Printf(TEXT("¼ýÀÚ°ª %d"), SavePoint);
+		//get&set relative used solution
+		//FVector CurrentPoint = SM_Cube_Move->GetRelativeLocation();
+		//CurrentPoint.X += Multi_Result;
+		//SM_Cube_Move->SetRelativeLocation(CurrentPoint);
+
+		FVector MyCurrentPoint;
+		MyCurrentPoint.X += Multi_Result;
+		SM_Cube_Move->AddLocalOffset(MyCurrentPoint);
+
+
+		SavePoint += Multi_Result;
+
+		if (SavePoint > 1000)
+		{
+			this->Isturn = true;
+
+			
+		}
+		else
+		{
+
+		}
+
+		
+		
+	}
+	else
+	{
+		
+
+		Multi_Result = BaseNumber * -1;
+		
+		//get&set relative used solution
+		//FVector CurrentPoint = SM_Cube_Move->GetRelativeLocation();
+		//CurrentPoint.X -= Multi_Result;
+		//SM_Cube_Move->SetRelativeLocation(CurrentPoint);
+
+		FVector MyCurrentPoint;
+		MyCurrentPoint.X += Multi_Result;
+		SM_Cube_Move->AddLocalOffset(MyCurrentPoint);
+
+		SavePoint += Multi_Result;
+		if (SavePoint < -1000)
+		{
+			this->Isturn = false;
+		}
+	}
+
+	
 
 }
 

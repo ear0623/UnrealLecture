@@ -15,8 +15,16 @@ class UNREALLECTURE_API AMyActor : public AActor
 	UStaticMeshComponent* SM_Cube_Move;
 
 	UPROPERTY(EditDefaultsOnly, category = "Bool")
-	bool Isturn{};
+	bool Isturn=false;
 
+	UPROPERTY(EditDefaultsOnly, category = "float")
+	float BaseNumber{1};
+
+	UPROPERTY(EditDefaultsOnly, category = "float")
+	float Multi_Result{};
+
+	UPROPERTY(EditDefaultsOnly, category = "float")
+	float SavePoint{};
 	
 
 	
@@ -31,5 +39,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	
 
 };
