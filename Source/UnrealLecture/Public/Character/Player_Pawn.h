@@ -55,6 +55,7 @@ public:
 	void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* ohteractor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 	void OnBeginEndOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* OtherActor, UPrimitiveComponent* OhterComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION()
 	void BoxOnBeginEndOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* OtherActor, UPrimitiveComponent* OhterComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	
 protected:
