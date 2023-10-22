@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "MoveActorRetry.h"
+#include "Components/BoxComponent.h"
 #include "Player_Pawn.generated.h"
 
 UCLASS()
@@ -28,6 +30,12 @@ class UNREALLECTURE_API APlayer_Pawn : public APawn
 	UPROPERTY(EditAnywhere,category="float")
 	float Jumping{};
 
+	UPROPERTY(EditDefaultsOnly)
+	UBoxComponent* BoxCollision;
+
+	int ScoreCount{};
+	int AddPoint{1};
+
 public:
 	// Sets default values for this pawn's properties
 	APlayer_Pawn();
@@ -42,6 +50,13 @@ public:
 	FVector CurrentVelocity;
 	bool Jump;
 
+	//
+	UFUNCTION()
+	void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* ohteractor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION()
+	void OnBeginEndOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* OtherActor, UPrimitiveComponent* OhterComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	void BoxOnBeginEndOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* OtherActor, UPrimitiveComponent* OhterComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -54,3 +69,4 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };
+

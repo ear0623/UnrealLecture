@@ -8,7 +8,7 @@ APlayer_Pawn::APlayer_Pawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	//staticmesh
 	PlayerCharater = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cubemap"));
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("StaticMesh/'Game/Path/To/Your/StaticMesh'"));
@@ -17,6 +17,7 @@ APlayer_Pawn::APlayer_Pawn()
 		PlayerCharater->SetStaticMesh(MeshAsset.Object);
 	}
 
+	//camera
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootSCeneComponent"));
 	MySpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraCompoenet"));
@@ -30,8 +31,15 @@ APlayer_Pawn::APlayer_Pawn()
 	MySpringArm->TargetArmLength = 400.f;
 	MySpringArm->bEnableCameraLag = true;
 	MySpringArm->CameraLagSpeed = 3.0f;
-
+	//possed
 	AutoPossessPlayer = EAutoReceiveInput::Disabled;
+
+	//boxcollision
+	BoxCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("boxcollision"));
+	RootComponent= CreateDefaultSubobject<USceneComponent>(TEXT("RootCeneComponent"));
+	
+	PlayerCharater->SetupAttachment(RootComponent);
+	BoxCollision->SetupAttachment(PlayerCharater);
 
 	
 	
@@ -67,6 +75,31 @@ void APlayer_Pawn::StopJump()
 
 	APlayer_Pawn::AddActorWorldOffset(JumpDownVector);
 }
+
+void APlayer_Pawn::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* ohteractor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	//overlap event solution0 01
+	/*if (ohteractor && ohteractor->IsA(AMoveActorRetry::StaticClass()))
+	{
+		ScoreCount += AddPoint;
+	}*/
+	
+}
+
+void APlayer_Pawn::OnBeginEndOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* OtherActor, UPrimitiveComponent* OhterComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+
+}
+
+void APlayer_Pawn::BoxOnBeginEndOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* OtherActor, UPrimitiveComponent* OhterComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	//overlap event solution 002
+	if (OtherActor && OtherActor->IsA(AMoveActorRetry::StaticClass()))
+	{
+		ScoreCount += AddPoint;
+	}
+}
+		
 
 // Called when the game starts or when spawned
 void APlayer_Pawn::BeginPlay()
