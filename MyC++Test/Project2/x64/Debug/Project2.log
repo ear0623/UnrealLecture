@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Work\Project2\main.cpp(33,10): warning C4101: 'dou_Num1': unreferenced local variable
+C:\Work\Project2\main.cpp(33,20): warning C4101: 'dou_Num2': unreferenced local variable
+C:\Work\Project2\main.cpp(37): error C4716: 'Public::OverRiding': must return a value
+C:\Work\Project2\main.cpp(29): error C4716: 'Public::OverRiding': must return a value

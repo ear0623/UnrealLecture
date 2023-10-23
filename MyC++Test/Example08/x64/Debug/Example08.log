@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Work\Example08\main.cpp(16,23): error C2440: '=': cannot convert from 'const char [6]' to 'char *'
+C:\Work\Example08\main.cpp(16,23): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)

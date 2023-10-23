@@ -1,0 +1,2 @@
+﻿  main.cpp
+C:\Work\EnumTest\main.cpp(28,17): error C2510: 'Color': left of '::' must be a class/struct/union

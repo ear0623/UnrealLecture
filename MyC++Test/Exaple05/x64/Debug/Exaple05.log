@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Work\Exaple05\main.cpp(23,7): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Exaple05.vcxproj -> C:\Work\Exaple05\x64\Debug\Exaple05.exe

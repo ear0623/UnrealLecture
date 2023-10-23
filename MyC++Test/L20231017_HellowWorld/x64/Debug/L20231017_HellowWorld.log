@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Work\L20231017_HellowWorld\main.cpp(21,10): warning C4305: 'initializing': truncation from 'double' to 'float'
+  L20231017_HellowWorld.vcxproj -> C:\Work\L20231017_HellowWorld\x64\Debug\L20231017_HellowWorld.exe
