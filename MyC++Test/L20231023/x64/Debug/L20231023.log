@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\L20231023\main.cpp(35,9): error C2065: 'Name': undeclared identifier
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\L20231023\main.cpp(41,9): error C2065: 'Namebuf': undeclared identifier
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\L20231023\main.cpp(41,18): error C2065: 'Name': undeclared identifier

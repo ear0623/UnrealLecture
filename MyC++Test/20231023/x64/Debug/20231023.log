@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Work\20231023\main.cpp(133,6): warning C4101: 'reulst_char': unreferenced local variable
+  20231023.vcxproj -> C:\Work\20231023\x64\Debug\20231023.exe
