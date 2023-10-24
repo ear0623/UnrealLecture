@@ -1,2 +1,23 @@
 ﻿  Main.cpp
-C:\Work\Example110_001\Main.cpp(21,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,31): error C2662: 'int Student::GetId(void)': cannot convert 'this' pointer from 'const Student' to 'Student &'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,23): message : Conversion loses qualifiers
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(26,6): message : see declaration of 'Student::GetId'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,31): message : while trying to match the argument list '()'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,16): error C2088: '<<': illegal for class
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,69): error C2662: 'const char *Student::GetName(void)': cannot convert 'this' pointer from 'const Student' to 'Student &'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,61): message : Conversion loses qualifiers
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(31,14): message : see declaration of 'Student::GetName'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(102,69): message : while trying to match the argument list '()'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(122,21): error C2015: too many characters in constant
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(122,9): error C2664: 'void Exam::Setinfo(int,char *,Subjects,int)': cannot convert argument 2 from 'int' to 'char *'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(122,21): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or parenthesized function-style cast
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(83,12): message : see declaration of 'Exam::Setinfo'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(122,9): message : while trying to match the argument list '(int, int, Subjects, int)'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(123,9): error C2664: 'void Exam::Setinfo(int,char *,Subjects,int)': cannot convert argument 2 from 'const char [7]' to 'char *'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(123,21): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(83,12): message : see declaration of 'Exam::Setinfo'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(123,9): message : while trying to match the argument list '(int, const char [7], Subjects, int)'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(124,9): error C2664: 'void Exam::Setinfo(int,char *,Subjects,int)': cannot convert argument 2 from 'const char [7]' to 'char *'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(124,21): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(83,12): message : see declaration of 'Exam::Setinfo'
+C:\Users\PC\Documents\UnrealLecture\MyC++Test\Example110_001\Main.cpp(124,9): message : while trying to match the argument list '(int, const char [7], Subjects, int)'

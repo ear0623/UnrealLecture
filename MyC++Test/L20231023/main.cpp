@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 
+#define _CRT_SECURE_NO_WARNINGS
+
 using namespace std;
 
 class Person
@@ -10,6 +12,9 @@ public:
 	Person(const Person& psn);
 	~Person();
 
+	void SetName(const char* newname);
+	void GetName(char* Namebuf) const;
+
 private:
 	char* Name;
 };
@@ -17,12 +22,14 @@ private:
 Person::Person()
 {
 	Name = new char[50];
+	Name[0] = '\n';
 
 }
 
 Person::Person(const Person& psn)
 {
-
+	Name = new char[strlen(psn.Name) + 1];
+	strcpy(Name, psn.Name);
 }
 
 
@@ -31,16 +38,18 @@ Person::~Person()
 	delete[]  Name;
 }
 
-void SetName(char* newname)
+void Person::SetName(const char* newname)
 {
 	strcpy(Name, newname);
 
 }
 
-void GetName(char* Namebuf)
+void Person::GetName(char* Namebuf) const
 {
-	strcpy(Namebuf, newname);
+	strcpy(Namebuf, Name);
 }
+
+
 
 int main()
 {
@@ -56,6 +65,17 @@ int main()
 		}
 		//cout << endl;
 	}
+
+	Person* psn1 = new Person;
+	psn1->SetName("Juhyun");
+	Person* psn2 = new Person(*psn1);
+	char name[50];
+	psn2->GetName(name);
+	cout << name << endl;
+
+	delete psn1;
+	delete psn2;
+	return 0;
 
 
 }

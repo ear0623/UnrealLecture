@@ -1,7 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+
 #include <iostream>
 #include <cstring>
 
-#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
@@ -26,9 +28,9 @@ public:
 		return id;
 	}
 
-	char* GetName() const
+	const char* GetName()
 	{
-		return (char*)name;
+		return name;
 	}
 
 private:
@@ -90,14 +92,15 @@ void Exam::Setinfo(int id, char* name, Subjects s, int num)
 void Exam::GetResult(char* buf) const
 {
 	const char* subname[] ={ "¼öÇÐ","¿µ¾î","°úÇÐ" };
-	//cout <<subname[subject]<<" : " << point<< "Á¡" << endl;
+	
 
 
 }
 
-void PrintResult(const Exam& Exam)
+void PrintResult(const Exam&
+	Exam)
 {
-	cout << Exam.student.GetName() << endl;
+	cout <<"ID : "<< Exam.student.GetId() <<", Name : " << Exam.student.GetName() << endl;
 	char buf[30];
 	Exam.GetResult(buf);
 	cout << buf << endl;
@@ -117,9 +120,9 @@ double GetAvg(const Exam* Exam, int num)
 int main()
 {
 	Exam Exam[3];
-	//Exam[0].Setinfo(1, 'È«±æµ¿', Math, 60);
-	//Exam[1].Setinfo(1, "È«±æµ¿", English, 75);
-	//Exam[2].Setinfo(1, "È«±æµ¿", Science, 88);
+	Exam[0].Setinfo(1, 'È«±æµ¿', Math, 60);
+	Exam[1].Setinfo(1, "È«±æµ¿", English, 75);
+	Exam[2].Setinfo(1, "È«±æµ¿", Science, 88);
 
 	PrintResult(Exam[0]);
 	PrintResult(Exam[1]);
