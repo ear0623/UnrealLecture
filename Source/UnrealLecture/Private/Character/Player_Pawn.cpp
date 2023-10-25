@@ -50,11 +50,13 @@ APlayer_Pawn::APlayer_Pawn()
 void APlayer_Pawn::Move_XAis(float AxisValue)
 {
 	CurrentVelocity.X = FMath::Clamp(AxisValue, -1.0f, 1.0f) * 100.0f;
+
 }
 
 void APlayer_Pawn::Move_YAxis(float AxisValue)
 {
 	CurrentVelocity.Y = FMath::Clamp(AxisValue, -1.0f, 1.0f) * 100.0f;
+
 }
 
 void APlayer_Pawn::StartJump()
@@ -74,6 +76,11 @@ void APlayer_Pawn::StopJump()
 	FVector JumpDownVector(0, 0, -Jumping);
 
 	APlayer_Pawn::AddActorWorldOffset(JumpDownVector);
+}
+
+void APlayer_Pawn::PrintString(const UObject* WorldContextObject, const FString& InString, bool bPrintToScreen, bool bPrintToLog, FLinearColor TextColor, float Duration)
+{
+	//InString = "Hello";
 }
 
 void APlayer_Pawn::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* ohteractor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
