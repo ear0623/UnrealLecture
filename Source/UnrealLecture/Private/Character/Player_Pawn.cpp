@@ -41,6 +41,8 @@ APlayer_Pawn::APlayer_Pawn()
 	PlayerCharater->SetupAttachment(RootComponent);
 	BoxCollision->SetupAttachment(PlayerCharater);
 
+	BoxCollision->InitBoxExtent(FVector(100.0f, 100.0f, 100.0f));
+
 	
 	
 	

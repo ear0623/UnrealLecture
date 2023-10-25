@@ -28,6 +28,10 @@ class UNREALLECTURE_API APlayer_Pawn : public APawn
 	UPROPERTY(EditAnywhere)
 	USceneComponent* Scencomponent;
 
+
+
+	
+
 	
 
 	UPROPERTY(EditAnywhere,category="float")
