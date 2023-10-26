@@ -28,11 +28,12 @@ class UNREALLECTURE_API APlayer_Pawn : public APawn
 	UPROPERTY(EditAnywhere)
 	USceneComponent* Scencomponent;
 
+	UPROPERTY(EditAnywhere, category = "Widget")
+	TSubclassOf<UUserWidget> WidgetClass;
 
+	//UPROPERTY()
+	//class Widget* Interactedtest;
 
-	
-
-	
 
 	UPROPERTY(EditAnywhere,category="float")
 	float Jumping{};
@@ -53,6 +54,7 @@ public:
 	void StartJump();
 	void StopJump();
 	static void PrintString(const UObject* WorldContextObject, const FString& InString, bool bPrintToScreen, bool bPrintToLog, FLinearColor TextColor, float Duration);
+
 
 	//Input Variables
 	FVector CurrentVelocity;
