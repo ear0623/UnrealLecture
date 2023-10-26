@@ -4,12 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "MyActor_test.generated.h"
 
 UCLASS()
 class UNREALLECTURE_API AMyActor_test : public AActor
 {
 	GENERATED_BODY()
+
+	UPROPERTY(VisibleAnywhere, category = "defaults")
+	UStaticMeshComponent* StaticMeshCompoenet;
 	
 public:	
 	// Sets default values for this actor's properties

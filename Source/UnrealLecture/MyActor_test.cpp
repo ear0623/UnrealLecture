@@ -9,6 +9,9 @@ AMyActor_test::AMyActor_test()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	StaticMeshCompoenet = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Staticmesh"));
+	RootComponent = StaticMeshCompoenet;
+
 }
 
 // Called when the game starts or when spawned

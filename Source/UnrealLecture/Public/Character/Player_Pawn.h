@@ -8,6 +8,7 @@
 #include "Camera/CameraComponent.h"
 #include "MoveActorRetry.h"
 #include "Components/BoxComponent.h"
+#include "Blueprint/UserWidget.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Player_Pawn.generated.h"
 
@@ -31,8 +32,8 @@ class UNREALLECTURE_API APlayer_Pawn : public APawn
 	UPROPERTY(EditAnywhere, category = "Widget")
 	TSubclassOf<UUserWidget> WidgetClass;
 
-	//UPROPERTY()
-	//class Widget* Interactedtest;
+	UPROPERTY()
+	class UUserWidget* Interactedtest;
 
 
 	UPROPERTY(EditAnywhere,category="float")
@@ -54,7 +55,7 @@ public:
 	void StartJump();
 	void StopJump();
 	static void PrintString(const UObject* WorldContextObject, const FString& InString, bool bPrintToScreen, bool bPrintToLog, FLinearColor TextColor, float Duration);
-
+	void Interact();
 
 	//Input Variables
 	FVector CurrentVelocity;

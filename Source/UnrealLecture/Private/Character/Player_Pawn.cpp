@@ -85,6 +85,14 @@ void APlayer_Pawn::PrintString(const UObject* WorldContextObject, const FString&
 	//InString = "Hello";
 }
 
+void APlayer_Pawn::Interact()
+{
+	if (Interactedtest)
+	{
+		Interactedtest;
+	}
+}
+
 void APlayer_Pawn::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, APlayer_Pawn* ohteractor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	//overlap event solution0 01
