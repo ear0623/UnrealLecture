@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Camera/CameraComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "PractiveCharacter001.generated.h"
 
 UCLASS()
@@ -25,5 +27,29 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UCameraComponent* Camera;
+
+	UPROPERTY(VisibleAnywhere)
+	class UStaticMeshCompoenet* SwordMesh;
+
+
+	void MoveFoward(float InputValue);
+	void MoveRight(float InputValue);
+	void MouseMoveX(float InputValue);
+	void MouseMoveY(float InputValue);
+
+	//Attack
+	int Damege;
+
+	void StartAttack();
+	void LineTrace();
+
+
+public:
+
+	bool bIsAttacking;
 
 };
