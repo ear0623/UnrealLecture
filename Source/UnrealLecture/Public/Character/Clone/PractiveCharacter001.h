@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Animation/AnimSequence.h"
+#include "Engine/EngineTypes.h"
 #include "PractiveCharacter001.generated.h"
 
 UCLASS()

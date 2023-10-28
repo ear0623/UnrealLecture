@@ -96,3 +96,8 @@ void APractiveCharacter001::LineTrace()
 
 }
 
+void APractiveCharacter001::Linetrace()
+{
+
+}
+
