@@ -1,0 +1,5 @@
+﻿  BlackJack.cpp
+  Main.cpp
+C:\Work\BlackJact\Main.cpp(9,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Generating Code...
+  BlackJact.vcxproj -> C:\Work\BlackJact\x64\Debug\BlackJact.exe
