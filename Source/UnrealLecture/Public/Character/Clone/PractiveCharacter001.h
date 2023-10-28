@@ -36,9 +36,9 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* SwordMesh;
 
-	//UPROPERTY(EditAnywhere)
-	//class UAnimSequnce* AttackAnimation;
-	//내가 수정한거 안될시 삭제 후 UaimSequnce
+	UPROPERTY(EditAnywhere)
+	class UAnimSequence* AttackAnimation;
+	//I made but if not working UaimSequnce
 	UPROPERTY(EditAnywhere)
 	class UAnimationAsset* TryAttackAnimation;
 
@@ -57,6 +57,10 @@ protected:
 
 public:
 
+	UFUNCTION(BlueprintCallable)
+	void Linetrace();
+
+	UPROPERTY(BlueprintReadWrite)
 	bool bIsAttacking;
 
 };

@@ -74,14 +74,25 @@ void APractiveCharacter001::MouseMoveY(float InputValue)
 void APractiveCharacter001::StartAttack()
 {
 	//call Atack Animation;
-	//if (AttackAnimation)
-	//{
-	//	GetMesh()->PlayAnimation(AttackAnimation, false);
-	//}
+	if (AttackAnimation && !bIsAttacking)
+	{
+		GetMesh()->PlayAnimation(AttackAnimation, false);
+		bIsAttacking = true;
+	}
 }
 
 void APractiveCharacter001::LineTrace()
 {
-	//Deal Damege to enertmy in range
+	//Get Socket Location
+	FVector StartLocation = GetMesh()->GetSocketLocation(FName("Start"));
+	FVector EndLocation = GetMesh()->GetSocketLocation(FName("End"));
+	//Setup Linetrace
+	FHitResult HitResult;
+	FCollisionQueryParams TraceParams;
+	TraceParams.AddIgnoredActor(this);
+	//Linetrace
+	//GetWorld()->LineTraceMultiByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, TraceParams);
+
+
 }
 
