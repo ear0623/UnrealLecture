@@ -5,6 +5,7 @@
 
 
 
+
 // Sets default values
 APractiveCharacter001::APractiveCharacter001()
 {
@@ -16,8 +17,8 @@ APractiveCharacter001::APractiveCharacter001()
 	Camera->bUsePawnControlRotation = true;
 
 	//Sword
-	SwordMesh = CreateDefaultSubobject<UStaticMeshCompoenet>(TEXT("SwardMesh"));
-	
+	SwordMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SwordMesh"));
+	SwordMesh->SetupAttachment(GetMesh(), FName("SwordSocket"));
 	
 }
 
@@ -73,6 +74,10 @@ void APractiveCharacter001::MouseMoveY(float InputValue)
 void APractiveCharacter001::StartAttack()
 {
 	//call Atack Animation;
+	//if (AttackAnimation)
+	//{
+	//	GetMesh()->PlayAnimation(AttackAnimation, false);
+	//}
 }
 
 void APractiveCharacter001::LineTrace()

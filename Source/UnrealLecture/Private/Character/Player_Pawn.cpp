@@ -11,7 +11,7 @@ APlayer_Pawn::APlayer_Pawn()
 	//staticmesh
 	PlayerCharater = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cubemap"));
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("StaticMesh/'Game/Path/To/Your/StaticMesh'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("D:/Mygithub/UnrealLecture/Content/Map/_GENERATED/PC/My_Box.uasset"));
 	if (MeshAsset.Succeeded())
 	{
 		PlayerCharater->SetStaticMesh(MeshAsset.Object);

@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Animation/AnimSequence.h"
 #include "PractiveCharacter001.generated.h"
 
 UCLASS()
@@ -33,7 +34,13 @@ protected:
 	class UCameraComponent* Camera;
 
 	UPROPERTY(VisibleAnywhere)
-	class UStaticMeshCompoenet* SwordMesh;
+	class UStaticMeshComponent* SwordMesh;
+
+	//UPROPERTY(EditAnywhere)
+	//class UAnimSequnce* AttackAnimation;
+	//내가 수정한거 안될시 삭제 후 UaimSequnce
+	UPROPERTY(EditAnywhere)
+	class UAnimationAsset* TryAttackAnimation;
 
 
 	void MoveFoward(float InputValue);
