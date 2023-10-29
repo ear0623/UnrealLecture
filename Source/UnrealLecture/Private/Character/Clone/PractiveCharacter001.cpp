@@ -84,15 +84,28 @@ void APractiveCharacter001::StartAttack()
 void APractiveCharacter001::LineTrace()
 {
 	//Get Socket Location
-	FVector StartLocation = GetMesh()->GetSocketLocation(FName("Start"));
-	FVector EndLocation = GetMesh()->GetSocketLocation(FName("End"));
+	FVector StartLocation = SwordMesh->GetSocketLocation(FName("Start"));
+	FVector EndLocation = SwordMesh->GetSocketLocation(FName("End"));
 	//Setup Linetrace
 	FHitResult HitResult;
 	FCollisionQueryParams TraceParams;
 	TraceParams.AddIgnoredActor(this);
 	//Linetrace
-	//GetWorld()->LineTraceMultiByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, TraceParams);
+	GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, TraceParams);
+	
+	//debuglinetrace
+	DrawDebugLine(GetWorld(), StartLocation, EndLocation,FColor::Red,true,1,0,1);
 
+	if (HitResult.bBlockingHit)
+	{
+		AActor* ActerHit = HitResult.GetActor();
+		ActerHit->Destroy();
+	}
+	else
+	{
+
+	}
+	
 
 }
 
