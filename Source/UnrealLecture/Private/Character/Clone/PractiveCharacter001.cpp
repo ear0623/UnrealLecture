@@ -83,20 +83,30 @@ void APractiveCharacter001::StartAttack()
 
 void APractiveCharacter001::LineTrace()
 {
+	
 	//Get Socket Location
 	FVector StartLocation = SwordMesh->GetSocketLocation(FName("Start"));
 	FVector EndLocation = SwordMesh->GetSocketLocation(FName("End"));
 	//Setup Linetrace
 	FHitResult HitResult;
-	FCollisionQueryParams TraceParams;
-	TraceParams.AddIgnoredActor(this);
-	//Linetrace
-	GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, TraceParams);
 	
-	//debuglinetrace
-	DrawDebugLine(GetWorld(), StartLocation, EndLocation,FColor::Red,true,1,0,1);
+	FCollisionQueryParams TraceParams;
+	(TraceParams).AddIgnoredComponent(SwordMesh);
+	(TraceParams).AddIgnoredActor(this);
+	
 
-	if (HitResult.bBlockingHit)
+	//Linetrace
+	bHit = GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation,ECC_Visibility,TraceParams);
+
+
+
+	//de
+	// buglinetrace
+
+	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, true, 1, 0, 1);
+
+	
+	if (bHit)
 	{
 		AActor* ActerHit = HitResult.GetActor();
 		ActerHit->Destroy();
@@ -105,6 +115,7 @@ void APractiveCharacter001::LineTrace()
 	{
 
 	}
+
 	
 
 }

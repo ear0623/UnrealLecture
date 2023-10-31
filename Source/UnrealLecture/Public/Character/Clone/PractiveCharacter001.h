@@ -8,6 +8,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Animation/AnimSequence.h"
 #include "Engine/EngineTypes.h"
+#include "DrawDebugHelpers.h"
 #include "PractiveCharacter001.generated.h"
 
 UCLASS()
@@ -34,7 +35,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UCameraComponent* Camera;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite);
 	class UStaticMeshComponent* SwordMesh;
 
 	UPROPERTY(EditAnywhere)
@@ -54,6 +55,8 @@ protected:
 
 	void StartAttack();
 	void LineTrace();
+	bool bHit;
+
 
 
 public:
