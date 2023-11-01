@@ -81,47 +81,53 @@ void APractiveCharacter001::StartAttack()
 	}
 }
 
-void APractiveCharacter001::LineTrace()
+
+
+void APractiveCharacter001::Linetrace()
 {
-	
 	//Get Socket Location
 	FVector StartLocation = SwordMesh->GetSocketLocation(FName("Start"));
 	FVector EndLocation = SwordMesh->GetSocketLocation(FName("End"));
 	//Setup Linetrace
 	FHitResult HitResult;
-	
+
 	FCollisionQueryParams TraceParams;
 	(TraceParams).AddIgnoredComponent(SwordMesh);
 	(TraceParams).AddIgnoredActor(this);
-	
+
 
 	//Linetrace
-	bHit = GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation,ECC_Visibility,TraceParams);
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, TraceParams);
 
 
 
 	//de
 	// buglinetrace
 
-	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, true, 1, 0, 1);
+	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, false, 2.0f);
 
-	
-	if (bHit)
+
+	if (HitResult.bBlockingHit)
 	{
 		AActor* ActerHit = HitResult.GetActor();
-		ActerHit->Destroy();
+		
+
+		UHealthComponent* EnermyHit;
+		EnermyHit = ActerHit->FindComponentByClass<UHealthComponent>();
+
+		if (IsValid(EnermyHit))
+		{
+			EnermyHit->TankeDamege(Damage);
+		}
+
+		
 	}
 	else
 	{
 
 	}
 
-	
 
-}
-
-void APractiveCharacter001::Linetrace()
-{
 
 }
 

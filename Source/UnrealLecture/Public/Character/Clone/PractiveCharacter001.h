@@ -9,6 +9,7 @@
 #include "Animation/AnimSequence.h"
 #include "Engine/EngineTypes.h"
 #include "DrawDebugHelpers.h"
+#include "UnrealLecture/Public/ActorComponent/HealthComponent.h"
 #include "PractiveCharacter001.generated.h"
 
 UCLASS()
@@ -51,11 +52,12 @@ protected:
 	void MouseMoveY(float InputValue);
 
 	//Attack
-	int Damege;
+	UPROPERTY(EditAnywhere)
+	int Damage;
 
 	void StartAttack();
-	void LineTrace();
-	bool bHit;
+	
+	
 
 
 
