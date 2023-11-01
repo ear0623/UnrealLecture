@@ -10,6 +10,10 @@
 #include "Engine/EngineTypes.h"
 #include "DrawDebugHelpers.h"
 #include "UnrealLecture/Public/ActorComponent/HealthComponent.h"
+#include "InputMappingContext.h"
+#include "EnhancedInputSubsystems.h"
+#include "EnhancedInputComponent.h"
+#include "InputActionValue.h"
 #include "PractiveCharacter001.generated.h"
 
 UCLASS()
@@ -56,9 +60,15 @@ protected:
 	int Damage;
 
 	void StartAttack();
-	
-	
 
+	//EnhancedInput
+	UPROPERTY(EditAnywhere, category = "EnhancedInput")
+	class UInputMappingContext* InputMapping;
+
+	UPROPERTY(EditAnywhere, category = "EnhancedInput")
+	class UInputAction* Action;
+	
+	void Input_Enhanced();
 
 
 public:
@@ -68,5 +78,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsAttacking;
+
+	
 
 };

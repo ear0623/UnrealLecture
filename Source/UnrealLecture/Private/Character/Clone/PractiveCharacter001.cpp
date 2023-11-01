@@ -28,6 +28,16 @@ void APractiveCharacter001::BeginPlay()
 	Super::BeginPlay();
 
 	
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		//Get Add Local Player SubSystem
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			//Add Input Systems
+			Subsystem->AddMappingContext(InputMapping,0);
+		}
+	}
+	
 }
 
 // Called every frame
@@ -41,12 +51,19 @@ void APractiveCharacter001::Tick(float DeltaTime)
 void APractiveCharacter001::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAxis("MoveFoward", this, &APractiveCharacter001::MoveFoward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &APractiveCharacter001::MoveRight);
+
+	//Existing Movement Code
+	//PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	//PlayerInputComponent->BindAxis("MoveFoward", this, &APractiveCharacter001::MoveFoward);
+	//PlayerInputComponent->BindAxis("MoveRight", this, &APractiveCharacter001::MoveRight);
 	PlayerInputComponent->BindAxis("MouseMoveX", this, &APractiveCharacter001::MouseMoveX);
 	PlayerInputComponent->BindAxis("MouseMoveY", this, &APractiveCharacter001::MouseMoveY);
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &APractiveCharacter001::StartAttack);
+
+	if (UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
+	{
+		Input->BindAction(Action, ETriggerEvent::Triggered, this, &APractiveCharacter001::Input_Enhanced);
+	}
 }
 
 void APractiveCharacter001::MoveFoward(float InputValue)
@@ -82,6 +99,11 @@ void APractiveCharacter001::StartAttack()
 }
 
 
+
+void APractiveCharacter001::Input_Enhanced()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Pressed On EnhancedInput");
+}
 
 void APractiveCharacter001::Linetrace()
 {
